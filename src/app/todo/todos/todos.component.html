@@ -1,0 +1,11 @@
+<div class="title">
+  <h1>나의 하루</h1>
+  <h2>{{today | date: 'y년 M월 d일'}}</h2>
+</div>
+<div *ngFor="let todo of todos" (click)="toggleTodo(todo)">
+  <app-todo [todo]="todo" (onDeleteTodo)="deleteTodo($event)"></app-todo>
+</div>
+<div>
+  <app-add-todo [todos]="todos" (onTodoAdded)="addTodo($event)"></app-add-todo>
+  <app-delete-all [todos]="todos" ></app-delete-all>
+</div>
